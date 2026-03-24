@@ -1,0 +1,7 @@
+{
+  "name": "Investment Advisor",
+  "description": "An AI-driven personal financial advisory platform providing 24/7 personalized guidance, expense tracking, and wealth planning.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
