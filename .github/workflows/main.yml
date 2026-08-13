@@ -1,0 +1,31 @@
+name: Vite Project Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. GitHub Repository se code copy karne ke liye
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Node.js setup karne ke liye
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Aap 18 ya 22 bhi rakh sakte hain
+        cache: 'npm'       # npm installations ko fast karne ke liye
+
+    # 3. Project ki dependencies install karne ke liye
+    - name: Install Dependencies
+      run: npm ci
+
+    # 4. Vite Project ko build karne ke liye
+    - name: Build Vite Project
+      run: npm run build
